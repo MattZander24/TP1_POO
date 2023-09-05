@@ -1,0 +1,15 @@
+/*-------------------------------------------------------------------------
+|               Tarea                                                     |
+---------------------------------------------------------------------------
+| - descripcion: String                                                   |
+| - prioridad: int                                                        |
+| - estado: enum Estado                                                   |
+| - fechaLimite: LocalDate                                                |
+---------------------------------------------------------------------------
+| + modificarDescripcion(nuevaDescripcion: String): void                  |
+| + cambiarPrioridad(nuevaPrioridad: int): void                           |
+| + marcarComoCompletada(): void                                          |
+| + mostrarTarea(): String                                                |
+| + estaVencida(): boolean                                                |
+| + estaCompleta(): boolean                                               |
+-------------------------------------------------------------------------*/

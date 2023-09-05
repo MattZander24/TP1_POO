@@ -1,4 +1,4 @@
-package ar.edu.unlu.POO.TP1.EJ4.TP1;
+package ar.edu.unlu.POO.TP1.EJ4;
 
 import ar.edu.unlu.POO.TP1.EJ1.Nodo;
 
