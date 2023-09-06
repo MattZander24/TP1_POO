@@ -1,7 +1,13 @@
+import ar.edu.unlu.POO.TP1.EJ12.GestorTareasEJ12;
+import ar.edu.unlu.POO.TP1.EJ13.GestorTareasEJ13;
 import ar.edu.unlu.POO.TP1.EJ5.GestorTareas;
 import ar.edu.unlu.POO.TP1.EJ6.GestorBiblioteca;
 import ar.edu.unlu.POO.TP1.EJ7.GestorEcuacionesSG;
 import ar.edu.unlu.POO.TP1.EJ8.GestorPasswords;
+import ar.edu.unlu.POO.TP1.EJ9.GestorFechas;
+import ar.edu.unlu.POO.TP1.EJ10.GestorTareasEJ10;
+import ar.edu.unlu.POO.TP1.EJ11.Juego;
+
 
 import java.util.Scanner;
 
@@ -66,18 +72,29 @@ public class Main {
                     break;
                 case 9:
                     System.out.println("Ejercicio 9...");
+                    GestorFechas.testEjercicio9();
+                    PulseEnter();
                     break;
                 case 10:
                     System.out.println("Ejercicio 10...");
+                    GestorTareasEJ10.testEjercicio10();
+                    PulseEnter();
                     break;
                 case 11:
                     System.out.println("Ejercicio 11...");
+                    Juego.testEjercicio11();
+                    PulseEnter();
                     break;
                 case 12:
                     System.out.println("Ejercicio 12...");
+                    GestorTareasEJ12.testEjercicio12();
+                    PulseEnter();
                     break;
                 case 13:
                     System.out.println("Ejercicio 13...");;
+                    GestorTareasEJ13.testEjercicio13();
+                    PulseEnter();
+                    break;
                 case 0:
                     scanner.close();
                     System.exit(0);
@@ -93,5 +110,6 @@ public class Main {
         System.out.print("Pulse ENTER para continuar");
         scanner.nextLine();
         System.out.println("Volviendo al menu...\n");
+        scanner.close();
     }
 }
