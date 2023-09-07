@@ -132,9 +132,10 @@ public class Libro {
             cantidadPrestados++;
             System.out.println("Se ha prestado un ejemplar de '" + this.nombre +"'");
             return true;
-        } else
-            System.out.println("El libro '" + this.nombre +"' no se puede prestar porque es el ultimo ejemplar, el cual debe quedar para consulta dentro de la biblioteca");
+        } else {
+            System.out.println("El libro '" + this.nombre + "' no se puede prestar porque es el ultimo ejemplar, el cual debe quedar para consulta dentro de la biblioteca");
             return false;
+        }
     }
 
     public boolean devolverEjemplar() {
@@ -149,7 +150,6 @@ public class Libro {
         return this.cantidadEjemplares - this.getCantidadPrestados();
     }
 
-    @Override
     public String toString() {
         return "{" +
                 "nombre='" + nombre + '\'' +
