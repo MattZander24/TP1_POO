@@ -17,7 +17,7 @@ public class Cola {
         return longitud == 0;
     }
 
-    public int longitudPila () {
+    public int longitudCola () {
         return longitud;
     }
 

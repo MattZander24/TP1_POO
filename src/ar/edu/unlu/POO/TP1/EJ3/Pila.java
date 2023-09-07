@@ -29,7 +29,6 @@ public class Pila {
             tope.setSiguiente(backup);
         }
         longitud++;
-
     }
 
     public void desapilar () {

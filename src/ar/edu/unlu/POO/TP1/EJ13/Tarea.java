@@ -61,6 +61,14 @@ public class Tarea {
         this.fechaRecordatorio = fechaRecordatorio;
     }
 
+    public Persona getColaborador() {
+        return colaborador;
+    }
+
+    public void setColaborador(Persona colaborador) {
+        this.colaborador = colaborador;
+    }
+
     //------------------------------------------------------------------------------------------------------------------
 
     public void modificarDescripcion(String nuevaDescripcion) {

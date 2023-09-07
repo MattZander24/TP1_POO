@@ -1,5 +1,9 @@
+import ar.edu.unlu.POO.TP1.EJ1.GestorListasSimples;
 import ar.edu.unlu.POO.TP1.EJ12.GestorTareasEJ12;
 import ar.edu.unlu.POO.TP1.EJ13.GestorTareasEJ13;
+import ar.edu.unlu.POO.TP1.EJ2.GestorListasDobles;
+import ar.edu.unlu.POO.TP1.EJ3.GestorPilas;
+import ar.edu.unlu.POO.TP1.EJ4.GestorColas;
 import ar.edu.unlu.POO.TP1.EJ5.GestorTareas;
 import ar.edu.unlu.POO.TP1.EJ6.GestorBiblioteca;
 import ar.edu.unlu.POO.TP1.EJ7.GestorEcuacionesSG;
@@ -13,8 +17,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Trabajo practico N°1");
             System.out.println("Programacion Orientada a Objetos");
@@ -35,20 +39,25 @@ public class Main {
             System.out.println("0- Salir");
 
             System.out.print("Ingrese el número de la opción deseada: ");
+
             int opcion = scanner.nextInt();
 
             switch (opcion) {
                 case 1:
                     System.out.println("Ejercicio 1...");
+                    GestorListasSimples.testEjercicio1();
                     break;
                 case 2:
                     System.out.println("Ejercicio 2...");
+                    GestorListasDobles.testEjercicio2();
                     break;
                 case 3:
                     System.out.println("Ejercicio 3...");
+                    GestorPilas.testEjercicio3();
                     break;
                 case 4:
                     System.out.println("Ejercicio 4...");
+                    GestorColas.testEjercicio4();
                     break;
                 case 5:
                     System.out.println("Ejercicio 5...");
@@ -96,8 +105,8 @@ public class Main {
                     PulseEnter();
                     break;
                 case 0:
-                    scanner.close();
                     System.exit(0);
+                    break;
                 default:
                     System.out.println("Opción no válida. Ingrese un número válido.");
                     break;
@@ -106,10 +115,11 @@ public class Main {
     }
 
     public static void PulseEnter () {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Pulse ENTER para continuar");
-        scanner.nextLine();
+        Scanner scannerEnter = new Scanner(System.in);
+        if (scannerEnter.hasNextLine()) {
+            scannerEnter.nextLine();
+        }
         System.out.println("Volviendo al menu...\n");
-        scanner.close();
     }
 }

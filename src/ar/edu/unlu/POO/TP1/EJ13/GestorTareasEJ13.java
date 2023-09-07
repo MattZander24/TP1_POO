@@ -16,9 +16,12 @@ public class GestorTareasEJ13 {
 
         ToDoList listaPrueba = new ToDoList();
 
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("ToDoList");
+        int opcion = 1;
+        while (opcion != 0) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("\n-------------------------------------------------------");
+            System.out.println("\n\tToDoList");
+            System.out.println("\n-------------------------------------------------------");
             System.out.println("\nSelecicone la accion a ejecutar:");
             System.out.println("1- Agregar una tarea a la lista");
             System.out.println("2- Marcar una tarea como realizada");
@@ -28,7 +31,7 @@ public class GestorTareasEJ13 {
             System.out.println("0- Salir");
 
             System.out.print("Ingrese el número de la opción deseada: ");
-            int opcion = scanner.nextInt();
+            opcion = scanner.nextInt();
 
             switch (opcion) {
                 case 1:
@@ -37,14 +40,14 @@ public class GestorTareasEJ13 {
                     break;
                 case 2:
                     System.out.print("Ingrese el nombre de la tarea que quiere completar: ");
+                    scanner.nextLine();
                     String descripcion = scanner.nextLine();
                     System.out.print("Ingrese el nombre del colaborador que la completó: ");
                     String colaborador = scanner.nextLine();
                     listaPrueba.MarcarComoRealizada(descripcion, colaborador);
-
                     break;
                 case 3:
-                    System.out.println("Ejercicio 1...");
+                    listaPrueba.agregarColaborador();
                     break;
                 case 4:
                     ArrayList<Tarea> listaAMostrar = listaPrueba.mostrarTareasPendientes();
@@ -58,10 +61,29 @@ public class GestorTareasEJ13 {
                     }
                     break;
                 case 5:
-                    System.out.println("Ejercicio 1...");
-                    break;
+                    ArrayList<Tarea> listaAMostrarPorPersona;
+                    System.out.print("Ingrese el nombre del colaborador del que quiere ver sus tareas completadas: ");
+                    scanner.nextLine();
+                    String colabLista = scanner.nextLine();
+                    listaAMostrarPorPersona = listaPrueba.mostrarTareasPorPersona(colabLista);
+
+                    if (listaAMostrarPorPersona != null) {
+
+                        System.out.println("\n-------------------------------------------------------");
+                        System.out.println("Tareas Completas por " + colabLista + ":");
+                        System.out.println("-------------------------------------------------------");
+                        for (Tarea tarea : listaAMostrarPorPersona) {
+                            System.out.println(tarea.mostrarTarea());
+                            System.out.println("-------------------------------------------------------");
+                        }
+                        break;
+                    }
+                    else {
+                        System.out.println("Asegurese de haber creado alguna persona antes. Pulse enter para volver");
+                        break;
+                    }
                 case 0:
-                    scanner.close();
+                    break;
                 default:
                     System.out.println("Opción no válida. Ingrese un número válido.");
                     break;

@@ -9,11 +9,11 @@ public class ListaDoblementeEnlazada {
         this.longitud = 0;
     }
 
-    public boolean estaVacia() {
+    public boolean esVacia() {
         return longitud == 0;
     }
 
-    public int obtenerLongitud() {
+    public int longitudLista() {
         return longitud;
     }
 
@@ -46,8 +46,8 @@ public class ListaDoblementeEnlazada {
             actual = actual.getSiguiente();
         }
         if (actual.getSiguiente() != null) {
-            actual.setSiguiente(actual.getSiguiente().getSiguiente());
             actual.getSiguiente().setAnterior(actual.getAnterior());
+            actual.setSiguiente(actual.getSiguiente().getSiguiente());
             longitud--;
         }
     }

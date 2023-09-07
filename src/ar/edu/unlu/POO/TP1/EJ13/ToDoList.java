@@ -10,14 +10,10 @@ import java.util.Scanner;
 
 
 public class ToDoList {
-    private ArrayList<Tarea> toDoList;
-    private ArrayList<Persona> colaboradores;
+    private ArrayList<Tarea> toDoList = new ArrayList<Tarea>();
+    private ArrayList<Persona> colaboradores= new ArrayList<Persona>();
 
     private DateTimeFormatter DD_MM_YYYY = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
-    public ToDoList() {
-        this.toDoList = new ArrayList<Tarea>();
-    }
 
     public void agregarTareaTeclado() {
         Scanner scanner = new Scanner(System.in);
@@ -47,7 +43,7 @@ public class ToDoList {
         String fechaRecordatorioStr = scanner.nextLine();
         LocalDate fechaRecordatorio = LocalDate.parse(fechaRecordatorioStr, DD_MM_YYYY);
 
-        scanner.close();
+        //scanner.close();
 
         Tarea nueva = new Tarea(descripcion, prioridad, fechaLimite, fechaRecordatorio);
         nueva.VerificarEstado();
@@ -59,6 +55,18 @@ public class ToDoList {
         Tarea nueva = new Tarea(descripcion, prioridad, fechaLimite, fechaRecordatorio);
         nueva.VerificarEstado();
         this.toDoList.add(nueva);
+    }
+
+    public void agregarColaborador() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el nombre del colaborador: ");
+        String nombre = scanner.nextLine();
+        System.out.print("Ingrese el apellido del colaborador: ");
+        String apellido = scanner.nextLine();
+
+        Persona nueva = new Persona(nombre, apellido);
+        this.colaboradores.add(nueva);
     }
 
     public ArrayList<Tarea> mostrarTareasPendientes() {
@@ -86,6 +94,23 @@ public class ToDoList {
         });
 
         return tareasPendientes;
+    }
+
+    public ArrayList<Tarea> mostrarTareasPorPersona(String nombre) {
+
+        Persona p = buscarColaboradorPorNombre(nombre);
+        if (p != null) {
+            ArrayList<Tarea> tareasPorPersona = new ArrayList<Tarea>();
+            for (Tarea tarea : this.toDoList) {
+                if (tarea.getColaborador().getNombre().equals(nombre)) {
+                    tareasPorPersona.add(tarea);
+                }
+            }
+            return tareasPorPersona;
+        } else {
+            System.out.println("No se pudo mostrar la lista dado que el colaborador es inexistente");
+            return null;
+        }
     }
 
     //Buscar tareas por titulo (ingresar x teclado)
@@ -118,7 +143,7 @@ public class ToDoList {
                 t.marcarComoCompletada(p);
             }
         } else {
-            System.out.println("No se pudo marcar como completada dada que la tarea es inexistente");
+            System.out.println("No se pudo marcar como completada dada que la tarea y/o el colaborador son inexistentes");
         }
     }
 }
